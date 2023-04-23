@@ -16,12 +16,15 @@ public class HashTest {
     private Hash<String, Passenger> passengerHash;
     // Objects used
     private final int NUMBER_OF_PASSENGERS = 5;
-    private Passenger p1 = new Passenger("Miguel", "Torres", "12345", PassengerClass.ECONOMY, "A8", 18, 50, false);
-    private Passenger p2 = new Passenger("Daniel", "Gonzales", "23456", PassengerClass.FIRST_CLASS, "B1", 22, 1200,
+    private Passenger p1 = new Passenger("Miguel", "Torres", "12345", PassengerClass.ECONOMY, "A8", 18, 50, false,
             false);
-    private Passenger p3 = new Passenger("Maria", "Gomez", "34567", PassengerClass.FIRST_CLASS, "C2", 40, 150, true);
-    private Passenger p4 = new Passenger("Juan", "Perez", "45678", PassengerClass.ECONOMY, "B5", 33, 0, false);
-    private Passenger p5 = new Passenger("Javier", "Roman", "56789", PassengerClass.ECONOMY, "C6", 75, 3000, true);
+    private Passenger p2 = new Passenger("Daniel", "Gonzales", "23456", PassengerClass.FIRST_CLASS, "B1", 22, 1200,
+            false, false);
+    private Passenger p3 = new Passenger("Maria", "Gomez", "34567", PassengerClass.FIRST_CLASS, "C2", 40, 150, true,
+            false);
+    private Passenger p4 = new Passenger("Juan", "Perez", "45678", PassengerClass.ECONOMY, "B5", 33, 0, false, false);
+    private Passenger p5 = new Passenger("Javier", "Roman", "56789", PassengerClass.ECONOMY, "C6", 75, 3000, true,
+            false);
 
     // setups
     public void setup1() {
@@ -69,7 +72,8 @@ public class HashTest {
     @Test
     public void testInsertHashOverflow() {
         setup3();
-        Passenger p6 = new Passenger("Esteban", "GZam", "54321", PassengerClass.FIRST_CLASS, "A1", 18, 2000, false);
+        Passenger p6 = new Passenger("Esteban", "GZam", "54321", PassengerClass.FIRST_CLASS, "A1", 18, 2000, false,
+                false);
         assertThrows(HashException.class, () -> passengerHash.insert(p6.getIdentification(), p6));
     }
 
@@ -79,7 +83,7 @@ public class HashTest {
         setup2();
         try {
             Passenger p6 = new Passenger("Juan", "jdColonia", "12345", PassengerClass.FIRST_CLASS, "A3", 18, 3500,
-                    false);
+                    false, false);
             passengerHash.insert(p6.getIdentification(), p6);
             assert 2 == passengerHash.size();
             assertEquals(p6, passengerHash.search("12345"));
@@ -95,7 +99,7 @@ public class HashTest {
         setup2();
         try {
             Passenger p6 = new Passenger("Santiago", "santiesleo", "98765", PassengerClass.FIRST_CLASS, "B2", 19, 1500,
-                    false);
+                    false, false);
             passengerHash.insert(p6.getIdentification(), p6);
             assertEquals(p6, passengerHash.search("98765"));
         } catch (Exception e) {
@@ -145,7 +149,8 @@ public class HashTest {
     public void testDeleteRepeatedKey() {
         setup2();
         // This object has the same key as p1
-        Passenger p6 = new Passenger("Esteban", "GZam", "12345", PassengerClass.FIRST_CLASS, "A1", 18, 2000, false);
+        Passenger p6 = new Passenger("Esteban", "GZam", "12345", PassengerClass.FIRST_CLASS, "A1", 18, 2000, false,
+                false);
         passengerHash.insert(p6.getIdentification(), p6);
         passengerHash.delete("12345");
         assert 1 == passengerHash.size();

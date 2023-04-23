@@ -8,10 +8,10 @@ public class Passenger {
     private PassengerClass passengerClass;
     private String seat;
     private int age, accumulatedMiles;
-    private boolean specialAttention;
+    private boolean specialAttention, checked;
 
     public Passenger(String name, String lastName, String identification, PassengerClass passengerClass, String seat,
-            int age, int accumulatedMiles, boolean specialAttention) {
+            int age, int accumulatedMiles, boolean specialAttention, boolean checked) {
         this.name = name;
         this.lastName = lastName;
         this.identification = identification;
@@ -20,6 +20,7 @@ public class Passenger {
         this.age = age;
         this.accumulatedMiles = accumulatedMiles;
         this.specialAttention = specialAttention;
+        this.checked = checked;
     }
 
     public String getName() {
@@ -84,6 +85,14 @@ public class Passenger {
 
     public boolean isFirstClass() {
         return passengerClass == PassengerClass.FIRST_CLASS;
+    }
+
+    public boolean isChecked() {
+        return this.checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 
     @Override

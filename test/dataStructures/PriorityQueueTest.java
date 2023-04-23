@@ -13,13 +13,13 @@ import model.PassengerClass;
 public class PriorityQueueTest {
     private PriorityQueue<Integer, Passenger> priorityQueue;
     // Objects used
-    private Passenger p1 = new Passenger("Juan", "jdColonia", "12345", PassengerClass.ECONOMY, "A8", 18, 50, false);
+    private Passenger p1 = new Passenger("Juan", "jdColonia", "12345", PassengerClass.ECONOMY, "A8", 18, 50, false, false);
     private Passenger p2 = new Passenger("Santiago", "santiesleo", "23456", PassengerClass.FIRST_CLASS, "B1", 22, 1200,
-            false);
+            false, false);
     private Passenger p3 = new Passenger("Esteban", "EstebanGZam", "34567", PassengerClass.FIRST_CLASS, "C2", 40, 150,
-            true);
-    private Passenger p4 = new Passenger("Javier", "Roman", "56789", PassengerClass.ECONOMY, "C6", 75, 3000, true);
-    private Passenger p5 = new Passenger("Juan", "Perez", "45678", PassengerClass.ECONOMY, "B5", 33, 0, false);
+            true, false);
+    private Passenger p4 = new Passenger("Javier", "Roman", "56789", PassengerClass.ECONOMY, "C6", 75, 3000, true, false);
+    private Passenger p5 = new Passenger("Juan", "Perez", "45678", PassengerClass.ECONOMY, "B5", 33, 0, false, false);
 
     // setups
     public void setup1() {

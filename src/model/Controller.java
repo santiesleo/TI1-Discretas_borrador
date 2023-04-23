@@ -65,12 +65,19 @@ public class Controller {
     }
 
     public String passengerCheckIn(String identification) {
+        String msg = "";
         Passenger passenger = passengers.search(identification);
-        Instant instant = Instant.now();
-        int arrivalTime = Math.toIntExact(instant.getEpochSecond());
-        int priority = calculatePriorityEntry(passenger, passenger.isFirstClass(), startTime - arrivalTime);
-        entryOrder.insert(priority, passenger);
-        return "Passenger checked in at boarding lounge.";
+        if (passenger.isChecked()) {
+            msg = "The passenger has already checked in at the boarding lounge.";
+        } else {
+            Instant instant = Instant.now();
+            int arrivalTime = Math.toIntExact(instant.getEpochSecond());
+            int priority = calculatePriorityEntry(passenger, passenger.isFirstClass(), startTime - arrivalTime);
+            passenger.setChecked(true);
+            entryOrder.insert(priority, passenger);
+            msg = "Passenger checked in at boarding lounge.";
+        }
+        return msg;
     }
 
     public int calculatePriorityEntry(Passenger passenger, boolean isFirstClass, int arrivalTime) {
