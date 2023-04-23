@@ -20,7 +20,8 @@ public class Controller {
 
     public Controller() {
         Instant time = Instant.now(); // Calcula la hora de inicio del sistema
-        startTime = Math.toIntExact(time.getEpochSecond()); // Convierte la hora del sistema a segundos / Se convierte a int porque getEpochSecond trabaja con long
+        startTime = Math.toIntExact(time.getEpochSecond()); // Convierte la hora del sistema a segundos / Se convierte a
+                                                            // int porque getEpochSecond trabaja con long
         readGson();
         entryOrder = new PriorityQueue<>();
     }
@@ -57,7 +58,6 @@ public class Controller {
                 : "Passenger information:\n" + passenger.toString();
     }
 
-
     public String passengerCheckIn(String identification) {
         Passenger passenger = passengers.search(identification);
         Instant instant = Instant.now();
@@ -66,13 +66,14 @@ public class Controller {
         int priority = calculatePriority(passenger, passenger.isFirstClass(), startTime - arrivalTime);
         System.out.println(priority);
         entryOrder.insert(priority, passenger);
-        return null; // To be completed
+        return null;
     }
 
     public int calculatePriority(Passenger passenger, boolean isFirstClass, int arrivalTime) {
         int priority = 0;
         int coefficient = 1000; // Si quieren que organize desde la fila 8 hasta la fila 1. Cambienlo por 10000.
-        // Cuando es 1000, le da más prioridad a la primera clase de la fila 3 a la 1. Y luego la clase economy de la fila 8 a la 4
+        // Cuando es 1000, le da más prioridad a la primera clase de la fila 3 a la 1. Y
+        // luego la clase economy de la fila 8 a la 4
         String rowString = passenger.getSeat();
         int seat = Integer.parseInt(rowString.substring(1));
         priority += coefficient * seat;
@@ -97,9 +98,10 @@ public class Controller {
 
     public String showEntryOrder() {
         StringBuilder msg = new StringBuilder();
-        while(!entryOrder.isEmpty()) {
+        while (!entryOrder.isEmpty()) {
             Passenger passenger = entryOrder.extractMax();
-            msg.append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ").append(passenger.getSeat()).append("\n");
+            msg.append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
+                    .append(passenger.getSeat()).append("\n");
         }
         return msg.toString();
     }

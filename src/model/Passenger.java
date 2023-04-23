@@ -86,6 +86,7 @@ public class Passenger {
         return passengerClass == PassengerClass.FIRST_CLASS;
     }
 
+    @Override
     public String toString() {
         return "Name: " + getName() + "\nLast name: " + getLastName() + "\nId number: " + getIdentification()
                 + "\nPassenger class: " + getPassengerClass() + "\nSeat: " + getSeat() + "\nAccumulated miles: "

@@ -26,7 +26,13 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 	}
 
 	@Override
-	public V extractMax() {
+	public void insert(K key, V value) {
+		A.add(new ComparableNode<>(key, value));
+		increaseKey(A.size() - 1, key);
+	}
+
+	@Override
+	public V extractMax() throws PriorityQueueException {
 		if (isEmpty()) {
 			throw new PriorityQueueException("Heap underflow.");
 		}
@@ -38,29 +44,23 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 	}
 
 	@Override
-	public void insert(K key, V element) {
-		A.add(new ComparableNode<>(key, element));
-		increaseKey(A.size() - 1, key);
-	}
-
-	@Override
 	public V maximum() {
-		return A.get(0).getValue();
+		return isEmpty() ? null : A.get(0).getValue();
 	}
 
 	@Override
-	public void increaseKey(int i, K key) {
+	public void increaseKey(int i, K key) throws PriorityQueueException {
 		if (key.compareTo(A.get(i).getKey()) < 0) {
 			throw new PriorityQueueException("New key is smaller than current key.");
 		}
 		A.get(i).setKey(key);
-		while (i >= 0 && A.get(parent(i)).getKey().compareTo(A.get(i).getKey()) < 0) {
+		while (i > 0 && A.get(parent(i)).getKey().compareTo(A.get(i).getKey()) < 0) {
 			swap(i, parent(i));
 			i = parent(i);
 		}
 	}
 
-	public void maxHeapify(int i) {
+	private void maxHeapify(int i) {
 		int l = left(i), r = right(i), largest = i;
 		if (l < A.size() && A.get(l).getKey().compareTo(A.get(i).getKey()) > 0) {
 			largest = l;
@@ -74,7 +74,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 		}
 	}
 
-	public void swap(int i, int j) {
+	private void swap(int i, int j) {
 		ComparableNode<K, V> temp = A.get(i);
 		A.set(i, A.get(j));
 		A.set(j, temp);
