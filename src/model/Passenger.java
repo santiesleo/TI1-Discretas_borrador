@@ -82,15 +82,9 @@ public class Passenger {
     }
 
     public String toString() {
-        return "{" +
-                " name='" + getName() + "'" +
-                ", lastName='" + getLastName() + "'" +
-                ", identification='" + getIdentification() + "'" +
-                ", passengerClass='" + getPassengerClass() + "'" +
-                ", seat='" + getSeat() + "'" +
-                ", accumulatedMiles='" + getAccumulatedMiles() + "'" +
-                ", specialAttention='" + isSpecialAttention() + "'" +
-                "}";
+        return "Name: " + getName() + "\nLast name: " + getLastName() + "\nId number: " + getIdentification()
+                + "\nPassenger class: " + getPassengerClass() + "\nSeat: " + getSeat() + "\nAccumulated miles: "
+                + getAccumulatedMiles() + "\nSpecial attention: " + isSpecialAttention() + "\n";
     }
 
 }

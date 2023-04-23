@@ -47,7 +47,8 @@ public class Controller {
 
     public String searchPassenger(String identification) {
         Passenger passenger = passengers.search(identification);
-        return (passenger == null) ? "Error. Passenger not found." : passenger.toString();
+        return (passenger == null) ? "Error. Passenger not found."
+                : "Passenger information:\n" + passenger.toString();
     }
 
     public String passengerCheckIn() {

@@ -25,8 +25,9 @@ public class Hash<K extends Comparable<K>, V> implements IHash<K, V> {
             for (int i = 0; i < bucketArray.size(); i++) {
                 int j = hash(key, i);
                 if (bucketArray.get(j) == null || bucketArray.get(j).getKey().compareTo(key) == 0) {
+                    if (bucketArray.get(j) == null)
+                        this.size++;
                     bucketArray.set(j, new ComparableNode<>(key, value));
-                    this.size++;
                     return;
                 }
             }
