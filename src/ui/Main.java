@@ -8,9 +8,7 @@ public class Main {
     private static Controller controller = new Controller();
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        menu();
-    }
+    public static void main(String[] args) { menu(); }
 
     public static void menu() {
 
@@ -31,6 +29,7 @@ public class Main {
                 showEntryOrder();
                 break;
             case 3:
+                showExitOrder();
                 break;
             case 0:
                 System.out.println("Thanks for using the program!");
@@ -52,9 +51,8 @@ public class Main {
         System.out.println(passengerInformation != null ? controller.passengerCheckIn(identification) : "");
     }
 
-    public static void showEntryOrder() {
-        System.out.println(controller.showEntryOrder());
-    }
+    public static void showEntryOrder() { System.out.println(controller.showEntryOrder()); }
 
+    public static void showExitOrder() { System.out.println(controller.showExitOrder()); }
 
 }
