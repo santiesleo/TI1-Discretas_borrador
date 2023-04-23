@@ -13,10 +13,14 @@ import java.time.Instant;
 public class Controller {
 
     private Hash<String, Passenger> passengers;
+    Hash<Character, Integer> seats;
     private PriorityQueue<Integer, Passenger> entryOrder;
+    private PriorityQueue<Integer, Passenger> exitOrder;
     private int startTime;
 
     private final int NUMBER_OF_SEATS = 48;
+    private final int SEAT_PER_ROW = 6;
+    private final int TOTAL_ROWS = 48;
 
     public Controller() {
         Instant time = Instant.now(); // Calcula la hora de inicio del sistema
@@ -24,6 +28,8 @@ public class Controller {
                                                             // int porque getEpochSecond trabaja con long
         readGson();
         entryOrder = new PriorityQueue<>();
+        exitOrder = new PriorityQueue<>();
+        seats = new Hash<>(6);
     }
 
     public void readGson() {
@@ -63,13 +69,13 @@ public class Controller {
         Instant instant = Instant.now();
         int arrivalTime = Math.toIntExact(instant.getEpochSecond());
         System.out.println(startTime - arrivalTime);
-        int priority = calculatePriority(passenger, passenger.isFirstClass(), startTime - arrivalTime);
+        int priority = calculatePriorityEntry(passenger, passenger.isFirstClass(), startTime - arrivalTime);
         System.out.println(priority);
         entryOrder.insert(priority, passenger);
         return null;
     }
 
-    public int calculatePriority(Passenger passenger, boolean isFirstClass, int arrivalTime) {
+    public int calculatePriorityEntry(Passenger passenger, boolean isFirstClass, int arrivalTime) {
         int priority = 0;
         int coefficient = 1000; // Si quieren que organize desde la fila 8 hasta la fila 1. Cambienlo por 10000.
         // Cuando es 1000, le da más prioridad a la primera clase de la fila 3 a la 1. Y
@@ -98,11 +104,46 @@ public class Controller {
 
     public String showEntryOrder() {
         StringBuilder msg = new StringBuilder();
+        fillHash_seats();
         while (!entryOrder.isEmpty()) {
             Passenger passenger = entryOrder.extractMax();
+            fillPQ_exit(passenger);
             msg.append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
                     .append(passenger.getSeat()).append("\n");
         }
         return msg.toString();
     }
+
+    public int calculatePriorityExit(int row, int numSeat) {
+        return SEAT_PER_ROW * (TOTAL_ROWS - row) + numSeat;
+    }
+
+    public void fillHash_seats() {
+        seats.insert('A', 4);
+        seats.insert('B', 5);
+        seats.insert('C', 6);
+        seats.insert('D', 3);
+        seats.insert('E', 2);
+        seats.insert('F', 1);
+    }
+
+    public void fillPQ_exit(Passenger passenger) {
+        String seat = passenger.getSeat();
+        int numSeat = seats.search(seat.charAt(0));
+        int row = seat.charAt(1);
+        int priority = calculatePriorityExit(row, numSeat);
+
+        exitOrder.insert(priority, passenger);
+    }
+
+    public String showExitOrder() {
+        StringBuilder msg = new StringBuilder();
+        while (!exitOrder.isEmpty()) {
+            Passenger passenger = exitOrder.extractMax();
+            msg.append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
+                    .append(passenger.getSeat()).append("\n");
+        }
+        return msg.toString();
+    }
+
 }
