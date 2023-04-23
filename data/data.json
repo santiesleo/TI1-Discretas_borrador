@@ -1,8 +1,7 @@
-{
-  "passengers": [
+[
     {
       "name": "Mateo",
-      "lastname": "García",
+      "lastName": "García",
       "identification": "12345678",
       "class": "ECONOMY",
       "seat": "A4",
@@ -12,7 +11,7 @@
     },
     {
       "name": "Sofía",
-      "lastname": "Martínez",
+      "lastName": "Martínez",
       "identification": "23456789",
       "class": "FIRST_CLASS",
       "seat": "A1",
@@ -22,7 +21,7 @@
     },
     {
       "name": "Lucas",
-      "lastname": "Hernández",
+      "lastName": "Hernández",
       "identification": "34567890",
       "class": "ECONOMY",
       "seat": "B5",
@@ -32,7 +31,7 @@
     },
     {
       "name": "Valentina",
-      "lastname": "Gómez",
+      "lastName": "Gómez",
       "identification": "45678901",
       "class": "ECONOMY",
       "seat": "E7",
@@ -42,7 +41,7 @@
     },
     {
       "name": "Miguel",
-      "lastname": "Torres",
+      "lastName": "Torres",
       "identification": "56789012",
       "class": "FIRST_CLASS",
       "seat": "D1",
@@ -52,7 +51,7 @@
     },
     {
       "name": "Isabella",
-      "lastname": "Díaz",
+      "lastName": "Díaz",
       "identification": "67890123",
       "class": "ECONOMY",
       "seat": "D5",
@@ -62,7 +61,7 @@
     },
     {
       "name": "Alejandro",
-      "lastname": "López",
+      "lastName": "López",
       "identification": "78901234",
       "class": "ECONOMY",
       "seat": "C8",
@@ -72,7 +71,7 @@
     },
     {
       "name": "Camila",
-      "lastname": "Rojas",
+      "lastName": "Rojas",
       "identification": "89012345",
       "class": "FIRST_CLASS",
       "seat": "B3",
@@ -82,7 +81,7 @@
     },
     {
       "name": "Javier",
-      "lastname": "Castro",
+      "lastName": "Castro",
       "identification": "90123456",
       "class": "ECONOMY",
       "seat": "A5",
@@ -92,7 +91,7 @@
     },
     {
       "name": "Valeria",
-      "lastname": "Sánchez",
+      "lastName": "Sánchez",
       "identification": "01234567",
       "class": "ECONOMY",
       "seat": "F8",
@@ -102,7 +101,7 @@
     },
     {
       "name": "Ana",
-      "lastname": "Flores",
+      "lastName": "Flores",
       "identification": "12348765",
       "class": "ECONOMY",
       "seat": "C5",
@@ -112,7 +111,7 @@
     },
     {
       "name": "David",
-      "lastname": "Ramírez",
+      "lastName": "Ramírez",
       "identification": "87654321",
       "class": "FIRST_CLASS",
       "seat": "F1",
@@ -122,7 +121,7 @@
     },
     {
       "name": "Laura",
-      "lastname": "Guzmán",
+      "lastName": "Guzmán",
       "identification": "45671234",
       "class": "ECONOMY",
       "seat": "B7",
@@ -132,7 +131,7 @@
     },
     {
       "name": "Juan",
-      "lastname": "Mendoza",
+      "lastName": "Mendoza",
       "identification": "43217654",
       "class": "FIRST_CLASS",
       "seat": "C1",
@@ -142,7 +141,7 @@
     },
     {
       "name": "María",
-      "lastname": "Herrera",
+      "lastName": "Herrera",
       "identification": "56781234",
       "class": "ECONOMY",
       "seat": "D6",
@@ -152,7 +151,7 @@
     },
     {
       "name": "Carlos",
-      "lastname": "Pérez",
+      "lastName": "Pérez",
       "identification": "65437821",
       "class": "ECONOMY",
       "seat": "E4",
@@ -162,7 +161,7 @@
     },
     {
       "name": "Paulina",
-      "lastname": "Luna",
+      "lastName": "Luna",
       "identification": "78903214",
       "class": "ECONOMY",
       "seat": "A6",
@@ -172,7 +171,7 @@
     },
     {
       "name": "Fernando",
-      "lastname": "Castillo",
+      "lastName": "Castillo",
       "identification": "09876543",
       "class": "FIRST_CLASS",
       "seat": "E2",
@@ -182,7 +181,7 @@
     },
     {
       "name": "Luisa",
-      "lastname": "Ortega",
+      "lastName": "Ortega",
       "identification": "23147568",
       "class": "ECONOMY",
       "seat": "F6",
@@ -192,7 +191,7 @@
     },
     {
       "name": "Roberto",
-      "lastname": "Vargas",
+      "lastName": "Vargas",
       "identification": "75846123",
       "class": "FIRST_CLASS",
       "seat": "D3",
@@ -202,7 +201,7 @@
     },
     {
       "name": "Ricardo",
-      "lastname": "Fuentes",
+      "lastName": "Fuentes",
       "identification": "87903214",
       "class": "FIRST_CLASS",
       "seat": "A2",
@@ -212,7 +211,7 @@
     },
     {
       "name": "Paola",
-      "lastname": "Vega",
+      "lastName": "Vega",
       "identification": "90874512",
       "class": "ECONOMY",
       "seat": "C6",
@@ -222,7 +221,7 @@
     },
     {
       "name": "Manuel",
-      "lastname": "López",
+      "lastName": "López",
       "identification": "12908765",
       "class": "ECONOMY",
       "seat": "D4",
@@ -232,7 +231,7 @@
     },
     {
       "name": "Mónica",
-      "lastname": "Chávez",
+      "lastName": "Chávez",
       "identification": "64783219",
       "class": "FIRST_CLASS",
       "seat": "C3",
@@ -242,7 +241,7 @@
     },
     {
       "name": "Felipe",
-      "lastname": "Castro",
+      "lastName": "Castro",
       "identification": "78563421",
       "class": "ECONOMY",
       "seat": "A8",
@@ -252,7 +251,7 @@
     },
     {
       "name": "Sofía",
-      "lastname": "Núñez",
+      "lastName": "Núñez",
       "identification": "56789123",
       "class": "ECONOMY",
       "seat": "D8",
@@ -262,7 +261,7 @@
     },
     {
       "name": "Gabriel",
-      "lastname": "García",
+      "lastName": "García",
       "identification": "12458796",
       "class": "FIRST_CLASS",
       "seat": "B1",
@@ -272,7 +271,7 @@
     },
     {
       "name": "Lucía",
-      "lastname": "Torres",
+      "lastName": "Torres",
       "identification": "37261548",
       "class": "ECONOMY",
       "seat": "B4",
@@ -282,7 +281,7 @@
     },
     {
       "name": "Diego",
-      "lastname": "Rojas",
+      "lastName": "Rojas",
       "identification": "94837216",
       "class": "ECONOMY",
       "seat": "C4",
@@ -292,7 +291,7 @@
     },
     {
       "name": "Juliana",
-      "lastname": "Aguirre",
+      "lastName": "Aguirre",
       "identification": "18765432",
       "class": "FIRST_CLASS",
       "seat": "E1",
@@ -302,7 +301,7 @@
     },
     {
       "name": "Miguel",
-      "lastname": "Villalobos",
+      "lastName": "Villalobos",
       "identification": "74826315",
       "class": "ECONOMY",
       "seat": "F4",
@@ -312,7 +311,7 @@
     },
     {
       "name": "Valentina",
-      "lastname": "Mendoza",
+      "lastName": "Mendoza",
       "identification": "92138476",
       "class": "FIRST_CLASS",
       "seat": "D2",
@@ -322,7 +321,7 @@
     },
     {
       "name": "Marcela",
-      "lastname": "Martínez",
+      "lastName": "Martínez",
       "identification": "37482910",
       "class": "ECONOMY",
       "seat": "B8",
@@ -332,7 +331,7 @@
     },
     {
       "name": "Andrés",
-      "lastname": "Gómez",
+      "lastName": "Gómez",
       "identification": "59173628",
       "class": "FIRST_CLASS",
       "seat": "A3",
@@ -342,7 +341,7 @@
     },
     {
       "name": "Camila",
-      "lastname": "González",
+      "lastName": "González",
       "identification": "89674523",
       "class": "ECONOMY",
       "seat": "A7",
@@ -352,7 +351,7 @@
     },
     {
       "name": "Jorge",
-      "lastname": "Santos",
+      "lastName": "Santos",
       "identification": "46578923",
       "class": "ECONOMY",
       "seat": "B6",
@@ -362,7 +361,7 @@
     },
     {
       "name": "Laura",
-      "lastname": "Lara",
+      "lastName": "Lara",
       "identification": "10293847",
       "class": "FIRST_CLASS",
       "seat": "B2",
@@ -372,7 +371,7 @@
     },
     {
       "name": "Mario",
-      "lastname": "Rivas",
+      "lastName": "Rivas",
       "identification": "93726154",
       "class": "ECONOMY",
       "seat": "C7",
@@ -382,7 +381,7 @@
     },
     {
       "name": "Daniela",
-      "lastname": "Alvarado",
+      "lastName": "Alvarado",
       "identification": "78654329",
       "class": "ECONOMY",
       "seat": "E5",
@@ -392,7 +391,7 @@
     },
     {
       "name": "Gustavo",
-      "lastname": "Ramírez",
+      "lastName": "Ramírez",
       "identification": "65437829",
       "class": "FIRST_CLASS",
       "seat": "C2",
@@ -402,7 +401,7 @@
     },
     {
       "name": "Natalia",
-      "lastname": "Vargas",
+      "lastName": "Vargas",
       "identification": "75849361",
       "class": "ECONOMY",
       "seat": "D7",
@@ -412,7 +411,7 @@
     },
     {
       "name": "Sebastián",
-      "lastname": "Herrera",
+      "lastName": "Herrera",
       "identification": "23456789",
       "class": "FIRST_CLASS",
       "seat": "F2",
@@ -422,7 +421,7 @@
     },
     {
       "name": "David",
-      "lastname": "Fernández",
+      "lastName": "Fernández",
       "identification": "67382941",
       "class": "ECONOMY",
       "seat": "E6",
@@ -432,7 +431,7 @@
     },
     {
       "name": "Estefanía",
-      "lastname": "Pérez",
+      "lastName": "Pérez",
       "identification": "98273465",
       "class": "FIRST_CLASS",
       "seat": "E3",
@@ -442,7 +441,7 @@
     },
     {
       "name": "Ricardo",
-      "lastname": "Castillo",
+      "lastName": "Castillo",
       "identification": "23981756",
       "class": "ECONOMY",
       "seat": "F5",
@@ -452,7 +451,7 @@
     },
     {
       "name": "Isabella",
-      "lastname": "Suárez",
+      "lastName": "Suárez",
       "identification": "72193847",
       "class": "ECONOMY",
       "seat": "E8",
@@ -462,7 +461,7 @@
     },
     {
       "name": "Fabián",
-      "lastname": "García",
+      "lastName": "García",
       "identification": "12345678",
       "class": "FIRST_CLASS",
       "seat": "F3",
@@ -472,7 +471,7 @@
     },
     {
       "name": "Luciana",
-      "lastname": "Álvarez",
+      "lastName": "Álvarez",
       "identification": "56473829",
       "class": "ECONOMY",
       "seat": "F7",
@@ -480,5 +479,4 @@
       "accumulatedMiles": 1500,
       "specialAttention": false
     }
-  ]
-}
+]

@@ -2,17 +2,26 @@ package model;
 
 public class Passenger {
     private String name;
-    private String lastname;
+    private String lastName;
     private String identification;
     private PassengerClass passengerClass;
     private String seat;
     private int accumulatedMiles;
     private boolean specialAttention;
 
-    public Passenger(String name, String lastname, String identification, PassengerClass passengerClass, String seat, int accumulatedMiles, boolean specialAttention) {
+    public Passenger(String name, String lastName, String identification, PassengerClass passengerClass, String seat,
+            int accumulatedMiles, boolean specialAttention) {
         this.name = name;
-        this.lastname = lastname;
+        this.lastName = lastName;
         this.identification = identification;
+        // switch (passengerClass) {
+        // case "ECONOMY":
+        // this.passengerClass = PassengerClass.ECONOMY;
+        // break;
+        // case "FIRST_CLASS":
+        // this.passengerClass = PassengerClass.FIRST_CLASS;
+        // break;
+        // }
         this.passengerClass = passengerClass;
         this.seat = seat;
         this.accumulatedMiles = accumulatedMiles;
@@ -27,12 +36,12 @@ public class Passenger {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getIdentification() {
@@ -45,10 +54,6 @@ public class Passenger {
 
     public PassengerClass getPassengerClass() {
         return passengerClass;
-    }
-
-    public void setPassengerClass(PassengerClass passengerClass) {
-        this.passengerClass = passengerClass;
     }
 
     public String getSeat() {
@@ -74,4 +79,20 @@ public class Passenger {
     public void setSpecialAttention(boolean specialAttention) {
         this.specialAttention = specialAttention;
     }
+
+    @Override
+    public String toString() {
+        // String passengerClass = (getPassengerClass() == PassengerClass.ECONOMY) ?
+        // "Economy" : "First class";
+        return "{" +
+                " name='" + getName() + "'" +
+                ", lastName='" + getLastName() + "'" +
+                ", identification='" + getIdentification() + "'" +
+                ", passengerClass='" + getPassengerClass() + "'" +
+                ", seat='" + getSeat() + "'" +
+                ", accumulatedMiles='" + getAccumulatedMiles() + "'" +
+                ", specialAttention='" + isSpecialAttention() + "'" +
+                "}";
+    }
+
 }
