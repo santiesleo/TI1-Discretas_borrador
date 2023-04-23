@@ -108,8 +108,8 @@ public class Controller {
         while (!entryOrder.isEmpty()) {
             Passenger passenger = entryOrder.extractMax();
             fillPQ_exit(passenger);
-            msg.append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
-                    .append(passenger.getSeat()).append("\n");
+            msg.append("\n").append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
+                    .append(passenger.getSeat());
         }
         return msg.toString();
     }
@@ -140,8 +140,8 @@ public class Controller {
         StringBuilder msg = new StringBuilder();
         while (!exitOrder.isEmpty()) {
             Passenger passenger = exitOrder.extractMax();
-            msg.append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
-                    .append(passenger.getSeat()).append("\n");
+            msg.append("\n").append(passenger.getName()).append(" ").append(passenger.getLastName()).append(" ")
+                    .append(passenger.getSeat());
         }
         return msg.toString();
     }

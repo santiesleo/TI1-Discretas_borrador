@@ -1,64 +1,101 @@
 package ui;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import model.Controller;
 
 public class Main {
-    private static Controller controller = new Controller();
-    private static Scanner scanner = new Scanner(System.in);
+
+    private static final Controller controller = new Controller();
+    private static final Scanner scanner = new Scanner(System.in);
+
+    // Colors for console output
+    public static final String RESET = "\u001B[0m";
+    public static final String BOLD = "\u001B[1m";
+    public static final String RED_BOLD = "\033[1;31m";
+    public static final String GREEN_BOLD = "\033[1;32m";
 
     public static void main(String[] args) {
-        menu();
+        Main manager = new Main();
+        manager.menu();
     }
 
-    public static void menu() {
+    public void menu() {
+        System.out.println(RED_BOLD + "*****************************************************************" + RESET);
+        System.out.println(BOLD + "                   WELCOME TO BOARDING SYSTEM                    " + RESET);
 
-        System.out.print(
-                "1. Check in a passenger.\n2. Show passenger entry order.\n3. Display passenger departure order.\n0. Exit.\nOption: ");
-        int option = scanner.nextInt();
-        scanner.nextLine();
-        System.out.println();
-        menu(option);
-    }
+        boolean stopFlag = false;
 
-    public static void menu(int option) {
-        switch (option) {
-            case 1:
-                passengerCheckIn();
-                break;
-            case 2:
-                showEntryOrder();
-                break;
-            case 3:
-                showExitOrder();
-                break;
-            case 0:
-                System.out.println("Thanks for using the program!");
-                break;
-            default:
-                System.out.println("Error. Type a valid option.");
-                break;
+        while (!stopFlag) {
+            System.out.println(RED_BOLD + "*****************************************************************" + RESET);
+            System.out.println(BOLD + "MAIN MENU:" + RESET +
+                    RED_BOLD + "\n[1]" + RESET + " Check in a passenger." +
+                    RED_BOLD + "\n[2]" + RESET + " Show passenger entry order." +
+                    RED_BOLD + "\n[3]" + RESET + " Display passenger exit order." +
+                    RED_BOLD + "\n[4]" + RESET + " Exit.");
+            try {
+                System.out.print(GREEN_BOLD + "> " + RESET);
+                int mainOption = Integer.parseInt(scanner.nextLine());
+                System.out.println(
+                        RED_BOLD + "*****************************************************************" + RESET);
+
+                switch (mainOption) {
+                    case 1:
+                        passengerCheckIn();
+                        break;
+                    case 2:
+                        showEntryOrder();
+                        break;
+                    case 3:
+                        showExitOrder();
+                        break;
+                    case 4:
+                        System.out.println(
+                                BOLD + "                       EXIT SUCCESSFULLY                        " + RESET);
+                        System.out.println(
+                                RED_BOLD + "*****************************************************************" + RESET);
+                        stopFlag = true;
+                        break;
+                    default:
+                        System.out.println(
+                                BOLD + "            INVALID INPUT: PLEASE ENTER A VALID VALUE            " + RESET);
+                        break;
+                }
+            } catch (InputMismatchException | NumberFormatException ex) {
+                System.out.println(
+                        RED_BOLD + "*****************************************************************" + RESET);
+                System.out.println(BOLD + "            INVALID INPUT: PLEASE ENTER A VALID VALUE            " + RESET);
+            }
         }
-        if (option != 0) {
-            menu();
-        }
     }
 
-    public static void passengerCheckIn() {
-        System.out.print("Passenger id number: ");
+    public void passengerCheckIn() {
+        System.out.print(BOLD + "Passenger ID number: " + RESET);
         String identification = scanner.nextLine();
         String passengerInformation = controller.searchPassenger(identification);
         System.out.println(passengerInformation);
         System.out.println(passengerInformation != null ? controller.passengerCheckIn(identification) : "");
     }
 
-    public static void showEntryOrder() {
-        System.out.println(controller.showEntryOrder());
+    public void showEntryOrder() {
+        String msg = controller.showEntryOrder();
+        if (msg.equals("")) {
+            System.out.println(BOLD + "                   NO PASSENGER HAS CHECKED IN                   " + RESET);
+        } else {
+            System.out.print(BOLD + "ENTRY ORDER:" + RESET);
+            System.out.println(msg);
+        }
     }
 
-    public static void showExitOrder() {
-        System.out.println(controller.showExitOrder());
+    public void showExitOrder() {
+        String msg = controller.showExitOrder();
+        if (msg.equals("")) {
+            System.out.println(BOLD + "              NO PASSENGER HAS ENTERED THE AIRCRAFT              " + RESET);
+        } else {
+            System.out.print(BOLD + "EXIT ORDER:" + RESET);
+            System.out.println(msg);
+        }
     }
 
 }
