@@ -6,16 +6,17 @@ public class Passenger {
     private String identification;
     private PassengerClass passengerClass;
     private String seat;
-    private int accumulatedMiles;
+    private int age, accumulatedMiles;
     private boolean specialAttention;
 
     public Passenger(String name, String lastName, String identification, PassengerClass passengerClass, String seat,
-            int accumulatedMiles, boolean specialAttention) {
+            int age, int accumulatedMiles, boolean specialAttention) {
         this.name = name;
         this.lastName = lastName;
         this.identification = identification;
         this.passengerClass = passengerClass;
         this.seat = seat;
+        this.age = age;
         this.accumulatedMiles = accumulatedMiles;
         this.specialAttention = specialAttention;
     }
@@ -72,10 +73,15 @@ public class Passenger {
         this.specialAttention = specialAttention;
     }
 
-    @Override
+    public int getAge() {
+        return this.age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
     public String toString() {
-        // String passengerClass = (getPassengerClass() == PassengerClass.ECONOMY) ?
-        // "Economy" : "First class";
         return "{" +
                 " name='" + getName() + "'" +
                 ", lastName='" + getLastName() + "'" +

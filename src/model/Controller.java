@@ -3,13 +3,17 @@ package model;
 import com.google.gson.Gson;
 
 import dataStructures.Hash.Hash;
+
 import exception.HashException;
 
 import java.io.*;
+import java.time.LocalDateTime;
 
 public class Controller {
 
     private Hash<String, Passenger> passengers;
+
+    private final int NUMBER_OF_SEATS = 48;
 
     public Controller() {
         readGson();
@@ -17,7 +21,7 @@ public class Controller {
 
     public void readGson() {
         Gson gson = new Gson();
-        passengers = new Hash<>(48);
+        passengers = new Hash<>(NUMBER_OF_SEATS);
         File projectDir = new File(System.getProperty("user.dir"));
         File dataDirectory = new File(projectDir + "\\data");
         File passengerInformation = new File(dataDirectory + "\\data.json");
@@ -41,8 +45,14 @@ public class Controller {
         }
     }
 
-    public Passenger searchPassenger(String identification) {
-        return passengers.search(identification);
+    public String searchPassenger(String identification) {
+        Passenger passenger = passengers.search(identification);
+        return (passenger == null) ? "Error. Passenger not found." : passenger.toString();
+    }
+
+    public String passengerCheckIn() {
+        LocalDateTime arrivalTime = LocalDateTime.now();
+        return null; // To be completed
     }
 
 }

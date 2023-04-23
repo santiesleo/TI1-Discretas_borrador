@@ -23,18 +23,12 @@ public class Hash<K extends Comparable<K>, V> implements IHash<K, V> {
     public void insert(K key, V value) throws HashException {
         if (size() < bucketArray.size()) {
             for (int i = 0; i < bucketArray.size(); i++) {
-                boolean located = false;
                 int j = hash(key, i);
-                if (bucketArray.get(j) == null) {
+                if (bucketArray.get(j) == null || bucketArray.get(j).getKey().compareTo(key) == 0) {
                     bucketArray.set(j, new ComparableNode<>(key, value));
                     this.size++;
-                    located = true;
-                } else if (bucketArray.get(j).getKey().compareTo(key) == 0) {
-                    bucketArray.get(j).setValue(value);
-                    located = true;
-                }
-                if (located)
                     return;
+                }
             }
         }
         throw new HashException("Hash table overflow: Maximum amount exceeded.");
