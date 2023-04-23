@@ -1,6 +1,7 @@
 package model;
 
 public class Passenger {
+
     private String name;
     private String lastName;
     private String identification;
@@ -79,6 +80,10 @@ public class Passenger {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public boolean isFirstClass() {
+        return passengerClass == PassengerClass.FIRST_CLASS;
     }
 
     public String toString() {

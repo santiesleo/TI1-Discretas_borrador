@@ -13,6 +13,7 @@ public class Main {
     }
 
     public static void menu() {
+
         System.out.print(
                 "1. Check in a passenger.\n2. Show passenger entry order.\n3. Display passenger departure order.\n0. Exit.\nOption: ");
         int option = scanner.nextInt();
@@ -27,6 +28,7 @@ public class Main {
                 passengerCheckIn();
                 break;
             case 2:
+                showEntryOrder();
                 break;
             case 3:
                 break;
@@ -44,9 +46,15 @@ public class Main {
 
     public static void passengerCheckIn() {
         System.out.print("Passenger id number: ");
-        String passengerInformation = controller.searchPassenger(scanner.nextLine());
+        String identification = scanner.nextLine();
+        String passengerInformation = controller.searchPassenger(identification);
         System.out.println(passengerInformation);
-        System.out.println(passengerInformation != null ? controller.passengerCheckIn() : "");
+        System.out.println(passengerInformation != null ? controller.passengerCheckIn(identification) : "");
     }
+
+    public static void showEntryOrder() {
+        System.out.println(controller.showEntryOrder());
+    }
+
 
 }
