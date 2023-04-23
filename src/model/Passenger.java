@@ -1,6 +1,7 @@
 package model;
 
 public class Passenger {
+
     private String name;
     private String lastName;
     private String identification;
@@ -81,6 +82,11 @@ public class Passenger {
         this.age = age;
     }
 
+    public boolean isFirstClass() {
+        return passengerClass == PassengerClass.FIRST_CLASS;
+    }
+
+
     public String toString() {
         return "{" +
                 " name='" + getName() + "'" +
@@ -88,6 +94,7 @@ public class Passenger {
                 ", identification='" + getIdentification() + "'" +
                 ", passengerClass='" + getPassengerClass() + "'" +
                 ", seat='" + getSeat() + "'" +
+                ", age='" + getAge() + "'" +
                 ", accumulatedMiles='" + getAccumulatedMiles() + "'" +
                 ", specialAttention='" + isSpecialAttention() + "'" +
                 "}";
