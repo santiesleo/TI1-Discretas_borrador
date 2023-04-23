@@ -14,14 +14,6 @@ public class Passenger {
         this.name = name;
         this.lastName = lastName;
         this.identification = identification;
-        // switch (passengerClass) {
-        // case "ECONOMY":
-        // this.passengerClass = PassengerClass.ECONOMY;
-        // break;
-        // case "FIRST_CLASS":
-        // this.passengerClass = PassengerClass.FIRST_CLASS;
-        // break;
-        // }
         this.passengerClass = passengerClass;
         this.seat = seat;
         this.accumulatedMiles = accumulatedMiles;

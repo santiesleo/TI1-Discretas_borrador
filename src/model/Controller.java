@@ -8,6 +8,7 @@ import exception.HashException;
 import java.io.*;
 
 public class Controller {
+
     private Hash<String, Passenger> passengers;
 
     public Controller() {
