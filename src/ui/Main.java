@@ -39,7 +39,6 @@ public class Main {
                 int mainOption = Integer.parseInt(scanner.nextLine());
                 System.out.println(
                         RED_BOLD + "*****************************************************************" + RESET);
-
                 switch (mainOption) {
                     case 1:
                         passengerCheckIn();

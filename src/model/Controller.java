@@ -29,7 +29,7 @@ public class Controller {
         readGson();
         entryOrder = new PriorityQueue<>();
         exitOrder = new PriorityQueue<>();
-        seats = new Hash<>(6);
+        seats = new Hash<>(SEAT_PER_ROW);
     }
 
     public void readGson() {
@@ -68,11 +68,9 @@ public class Controller {
         Passenger passenger = passengers.search(identification);
         Instant instant = Instant.now();
         int arrivalTime = Math.toIntExact(instant.getEpochSecond());
-        System.out.println(startTime - arrivalTime);
         int priority = calculatePriorityEntry(passenger, passenger.isFirstClass(), startTime - arrivalTime);
-        System.out.println(priority);
         entryOrder.insert(priority, passenger);
-        return null;
+        return "Passenger checked in at boarding lounge.";
     }
 
     public int calculatePriorityEntry(Passenger passenger, boolean isFirstClass, int arrivalTime) {
@@ -83,8 +81,6 @@ public class Controller {
         String rowString = passenger.getSeat();
         int seat = Integer.parseInt(rowString.substring(1));
         priority += coefficient * seat;
-        System.out.println("Priority seat: " + priority);
-
         coefficient = 1;
         if (isFirstClass) {
             if (passenger.isSpecialAttention()) {
@@ -94,11 +90,8 @@ public class Controller {
             }
             priority += coefficient * passenger.getAccumulatedMiles();
         }
-
         coefficient = 5;
-        System.out.println("Priority date: " + coefficient * arrivalTime);
         priority += coefficient * arrivalTime;
-
         return priority;
     }
 
@@ -132,7 +125,6 @@ public class Controller {
         int numSeat = seats.search(seat.charAt(0));
         int row = seat.charAt(1);
         int priority = calculatePriorityExit(row, numSeat);
-
         exitOrder.insert(priority, passenger);
     }
 
