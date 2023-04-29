@@ -81,15 +81,10 @@ public class HashTest {
     @Test
     public void testInsertElementWithTheSameKey() {
         setup2();
-        try {
-            Passenger p6 = new Passenger("Juan", "jdColonia", "12345", PassengerClass.FIRST_CLASS, "A3", 18, 3500,
-                    false, false);
-            passengerHash.insert(p6.getIdentification(), p6);
-            assert 2 == passengerHash.size();
-            assertEquals(p6, passengerHash.search("12345"));
-        } catch (HashException he) {
-            fail(he.getMessage());
-        }
+
+        Passenger p6 = new Passenger("Juan", "jdColonia", "12345", PassengerClass.FIRST_CLASS, "A3", 18, 3500,
+                false, false);
+        assertThrows(HashException.class, () -> passengerHash.insert(p6.getIdentification(), p6));
     }
 
     // search() tests
@@ -146,15 +141,20 @@ public class HashTest {
 
     // test 3
     @Test
-    public void testDeleteRepeatedKey() {
-        setup2();
-        // This object has the same key as p1
-        Passenger p6 = new Passenger("Esteban", "GZam", "12345", PassengerClass.FIRST_CLASS, "A1", 18, 2000, false,
-                false);
-        passengerHash.insert(p6.getIdentification(), p6);
+    public void testDeleteMultipleElements() {
+        // Arrange
+        setup3();
+
+        // Act
         passengerHash.delete("12345");
-        assert 1 == passengerHash.size();
+        passengerHash.delete("23456");
+        passengerHash.delete("45678");
+
+        // Assert
         assertNull(passengerHash.search("12345"));
+        assertNull(passengerHash.search("23456"));
+        assertNull(passengerHash.search("45678"));
+        assertEquals(2, passengerHash.size());
     }
 
 }

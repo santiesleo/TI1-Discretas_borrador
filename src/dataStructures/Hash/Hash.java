@@ -1,9 +1,9 @@
 package dataStructures.Hash;
 
-import java.util.ArrayList;
-
 import dataStructures.ComparableNode;
 import exception.HashException;
+
+import java.util.ArrayList;
 
 public class Hash<K extends Comparable<K>, V> implements IHash<K, V> {
     private int size;
@@ -22,6 +22,10 @@ public class Hash<K extends Comparable<K>, V> implements IHash<K, V> {
     @Override
     public void insert(K key, V value) throws HashException {
         if (size() < bucketArray.size()) {
+            V element = search(key);
+            if (element != null) {
+                throw new HashException("Duplicate key");
+            }
             for (int i = 0; i < bucketArray.size(); i++) {
                 int j = hash(key, i);
                 if (bucketArray.get(j) == null || bucketArray.get(j).getKey().compareTo(key) == 0) {
