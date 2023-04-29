@@ -105,7 +105,7 @@ public class Main {
         String msg = controller.showExitOrder();
         String exitOrder = ("*****************************************************************\n");
         if (msg.equals("")) {
-            exitOrder += ("              NO PASSENGER HAS ENTERED THE AIRCRAFT              \n");
+            exitOrder += ("              NO PASSENGER HAS ENTERED THE AIRPLANE              \n");
         } else {
             exitOrder += ("EXIT ORDER:\n" + msg + "\n");
         }
