@@ -13,7 +13,7 @@ import java.time.Instant;
 public class Controller {
 
     private Hash<String, Passenger> passengers;
-    Hash<Character, Integer> seats;
+    private Hash<Character, Integer> seats;
     private PriorityQueue<Integer, Passenger> entryOrder;
     private PriorityQueue<Integer, Passenger> exitOrder;
     private int startTime;

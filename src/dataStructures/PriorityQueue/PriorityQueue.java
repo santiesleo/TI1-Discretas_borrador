@@ -5,32 +5,65 @@ import exception.PriorityQueueException;
 
 import java.util.ArrayList;
 
+/**
+ * A priority queue implementation using a max heap.
+ * @param <K> The key type.
+ * @param <V> The value type.
+ */
 public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue<K, V> {
 
-	private final ArrayList<ComparableNode<K, V>> A;
+	private final ArrayList<ComparableNode<K, V>> A; // The array list that holds the nodes of the max heap.
 
+	/**
+	 * Constructs an empty priority queue.
+	 */
 	public PriorityQueue() {
 		this.A = new ArrayList<>();
 	}
 
+	/**
+	 * Returns the index of the parent of a node in the max heap.
+	 * @param i The index of the node.
+	 * @return The index of the parent.
+	 */
 	public int parent(int i) {
 		return (i - 1) / 2;
 	}
 
+	/**
+	 * Returns the index of the left child of a node in the max heap.
+	 * @param i The index of the node.
+	 * @return The index of the left child.
+	 */
 	public int left(int i) {
 		return 2 * i + 1;
 	}
 
+	/**
+	 * Returns the index of the right child of a node in the max heap.
+	 * @param i The index of the node.
+	 * @return The index of the right child.
+	 */
 	public int right(int i) {
 		return 2 * i + 2;
 	}
 
+	/**
+	 * Inserts a node with the given key and value into the priority queue.
+	 * @param key The key of the node.
+	 * @param value The value of the node.
+	 */
 	@Override
 	public void insert(K key, V value) {
 		A.add(new ComparableNode<>(key, value));
 		increaseKey(A.size() - 1, key);
 	}
 
+	/**
+	 * Removes and returns the node with the highest priority (maximum key) from the priority queue.
+	 * @return The value of the node with the highest priority.
+	 * @throws PriorityQueueException if the priority queue is empty.
+	 */
 	@Override
 	public V extractMax() throws PriorityQueueException {
 		if (isEmpty()) {
@@ -43,11 +76,21 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 		return max.getValue();
 	}
 
+	/**
+	 * Returns the value of the node with the highest priority (maximum key) in the priority queue, without removing it from the queue.
+	 * @return The value of the node with the highest priority, or null if the priority queue is empty.
+	 */
 	@Override
 	public V maximum() {
 		return isEmpty() ? null : A.get(0).getValue();
 	}
 
+	/**
+	 * Increases the key of the node at the given index in the priority queue.
+	 * @param i The index of the node.
+	 * @param key The new key for the node.
+	 * @throws PriorityQueueException if the new key is smaller than the current key.
+	 */
 	@Override
 	public void increaseKey(int i, K key) throws PriorityQueueException {
 		if (key.compareTo(A.get(i).getKey()) < 0) {
@@ -60,6 +103,10 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 		}
 	}
 
+	/**
+	 * Maintains the max-heap property of the priority queue by recursively "heapifying" the subtree rooted at i, assuming that the left and right subtrees are already max-heaps.
+	 * @param i The index of the root of the subtree to be heapified.
+	 */
 	private void maxHeapify(int i) {
 		int l = left(i), r = right(i), largest = i;
 		if (l < A.size() && A.get(l).getKey().compareTo(A.get(i).getKey()) > 0) {
@@ -74,16 +121,29 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 		}
 	}
 
+	/**
+	 * Swaps two elements in the priority queue at indices i and j.
+	 * @param i The index of the first element to be swapped.
+	 * @param j The index of the second element to be swapped.
+	 */
 	private void swap(int i, int j) {
 		ComparableNode<K, V> temp = A.get(i);
 		A.set(i, A.get(j));
 		A.set(j, temp);
 	}
 
+	/**
+	 * Returns the number of elements in the priority queue.
+	 * @return The number of elements in the priority queue.
+	 */
 	public int size() {
 		return this.A.size();
 	}
 
+	/**
+	 * Checks if the priority queue is empty.
+	 * @return true if the priority queue is empty, false otherwise.
+	 */
 	public boolean isEmpty() {
 		return size() == 0;
 	}
