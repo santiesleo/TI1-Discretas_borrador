@@ -24,7 +24,7 @@ public class Hash<K extends Comparable<K>, V> implements IHash<K, V> {
         if (size() < bucketArray.size()) {
             V element = search(key);
             if (element != null) {
-                throw new HashException("Duplicate key");
+                throw new HashException("Duplicate key.");
             }
             for (int i = 0; i < bucketArray.size(); i++) {
                 int j = hash(key, i);
