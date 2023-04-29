@@ -39,7 +39,7 @@ public class PriorityQueueTest {
         priorityQueue.insert(23, p2);
         priorityQueue.insert(56, p3);
         priorityQueue.insert(56, p4);
-        priorityQueue.insert(42, p5);
+        priorityQueue.insert(40, p5);
     }
 
     // insert() tests

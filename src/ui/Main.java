@@ -1,8 +1,5 @@
 package ui;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 import model.Controller;
 
 import javax.swing.*;
@@ -10,13 +7,6 @@ import javax.swing.*;
 public class Main {
 
     private static final Controller controller = new Controller();
-    private static final Scanner scanner = new Scanner(System.in);
-
-    // Colors for console output
-    public static final String RESET = "\u001B[0m";
-    public static final String BOLD = "\u001B[1m";
-    public static final String RED_BOLD = "\033[1;31m";
-    public static final String GREEN_BOLD = "\033[1;32m";
 
     public static void main(String[] args) {
         Main manager = new Main();
@@ -25,8 +15,6 @@ public class Main {
 
     public void menu() {
         JOptionPane.showMessageDialog(null, "*****************************************************************\n                   WELCOME TO BOARDING SYSTEM                    \n*****************************************************************");
-        System.out.println(RED_BOLD + "*****************************************************************" + RESET);
-        System.out.println(BOLD + "                   WELCOME TO BOARDING SYSTEM                    " + RESET);
 
         boolean stopFlag = false;
 
@@ -37,17 +25,16 @@ public class Main {
             menu += ("\n[2] Show passenger entry order.");
             menu += ("\n[3] Display passenger exit order.");
             menu += ("\n[4] Exit.");
-            System.out.println(RED_BOLD + "*****************************************************************" + RESET);
-            System.out.println(BOLD + "MAIN MENU:" + RESET +
-                    RED_BOLD + "\n[1]" + RESET + " Check in a passenger." +
-                    RED_BOLD + "\n[2]" + RESET + " Show passenger entry order." +
-                    RED_BOLD + "\n[3]" + RESET + " Display passenger exit order." +
-                    RED_BOLD + "\n[4]" + RESET + " Exit.");
+
+            String input = JOptionPane.showInputDialog(menu);
+
+            if (input == null) {
+                stopFlag = true;
+                continue;
+            }
+
             try {
-                System.out.print(GREEN_BOLD + "> " + RESET);
-                int mainOption = Integer.parseInt(JOptionPane.showInputDialog(menu));
-                System.out.println(
-                        RED_BOLD + "*****************************************************************" + RESET);
+                int mainOption = Integer.parseInt(input);
                 switch (mainOption) {
                     case 1:
                         passengerCheckIn();
@@ -61,13 +48,9 @@ public class Main {
                     case 4:
                         String exit = "";
                         exit += ("*****************************************************************\n");
-                        exit += ("                       EXIT SUCCESSFULLY                         \n");
+                        exit += ("                              EXIT SUCCESSFULLY                  \n");
                         exit += ("*****************************************************************");
                         JOptionPane.showMessageDialog(null, exit);
-                        System.out.println(
-                                BOLD + "                       EXIT SUCCESSFULLY                        " + RESET);
-                        System.out.println(
-                                RED_BOLD + "*****************************************************************" + RESET);
                         stopFlag = true;
                         break;
                     default:
@@ -75,28 +58,35 @@ public class Main {
                         invalidInput += ("*****************************************************************\n");
                         invalidInput += ("            INVALID INPUT: PLEASE ENTER A VALID VALUE            \n");
                         invalidInput += ("*****************************************************************");
-                        JOptionPane.showMessageDialog(null, invalidInput);
-                        System.out.println(
-                                BOLD + "            INVALID INPUT: PLEASE ENTER A VALID VALUE            " + RESET);
+                        JOptionPane.showMessageDialog(null, invalidInput, "Error", JOptionPane.ERROR_MESSAGE);
                         break;
                 }
-            } catch (InputMismatchException | NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "*****************************************************************\n" + "            INVALID INPUT: PLEASE ENTER A VALID VALUE            ");
-                System.out.println(
-                        RED_BOLD + "*****************************************************************" + RESET);
-                System.out.println(BOLD + "            INVALID INPUT: PLEASE ENTER A VALID VALUE            " + RESET);
+            } catch (NumberFormatException ex) {
+                String invalidInput = "";
+                invalidInput += ("*****************************************************************\n");
+                invalidInput += ("            INVALID INPUT: PLEASE ENTER A VALID VALUE            \n");
+                invalidInput += ("*****************************************************************");
+                JOptionPane.showMessageDialog(null, invalidInput, "Error", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
 
     public void passengerCheckIn() {
-        System.out.print(BOLD + "Passenger ID number: " + RESET);
         String identification = JOptionPane.showInputDialog("Passenger ID number: ");
-        String passengerInformation = controller.searchPassenger(identification);
-        JOptionPane.showMessageDialog(null, passengerInformation);
-        JOptionPane.showMessageDialog(null, passengerInformation != null ? controller.passengerCheckIn(identification) : "");
-        System.out.println(passengerInformation);
-        System.out.println(passengerInformation != null ? controller.passengerCheckIn(identification) : "");
+        try {
+            String passengerInformation = controller.searchPassenger(identification);
+            if (!passengerInformation.equals("Error: Passenger not found.")) {
+                JOptionPane.showMessageDialog(null, passengerInformation);
+                String checkInResult = controller.passengerCheckIn(identification);
+                if (!checkInResult.equals("The passenger had already been registered in the departure lounge.")) {
+                    JOptionPane.showMessageDialog(null, checkInResult);
+                } else {
+                    JOptionPane.showMessageDialog(null, checkInResult, "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, passengerInformation, "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } catch (Exception ignored) {}
     }
 
     public void showEntryOrder() {
@@ -104,11 +94,8 @@ public class Main {
         String entryOrder = ("*****************************************************************\n");
         if (msg.equals("")) {
             entryOrder += ("                   NO PASSENGER HAS CHECKED IN                   \n");
-            System.out.println(BOLD + "                   NO PASSENGER HAS CHECKED IN                   " + RESET);
         } else {
             entryOrder += ("ENTRY ORDER:\n" + msg + "\n");
-            System.out.print(BOLD + "ENTRY ORDER:" + RESET);
-            System.out.println(msg);
         }
         entryOrder += ("*****************************************************************");
         JOptionPane.showMessageDialog(null, entryOrder);
@@ -118,12 +105,9 @@ public class Main {
         String msg = controller.showExitOrder();
         String exitOrder = ("*****************************************************************\n");
         if (msg.equals("")) {
-            exitOrder += ("              NO PASSENGER HAS ENTERED THE AIRCRAFT              ");
-            System.out.println(BOLD + "              NO PASSENGER HAS ENTERED THE AIRCRAFT              " + RESET);
+            exitOrder += ("              NO PASSENGER HAS ENTERED THE AIRCRAFT              \n");
         } else {
             exitOrder += ("EXIT ORDER:\n" + msg + "\n");
-            System.out.print(BOLD + "EXIT ORDER:" + RESET);
-            System.out.println(msg);
         }
         exitOrder += ("*****************************************************************");
         JOptionPane.showMessageDialog(null, exitOrder);
