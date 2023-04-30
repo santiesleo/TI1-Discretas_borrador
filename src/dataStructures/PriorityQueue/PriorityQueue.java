@@ -7,12 +7,13 @@ import java.util.ArrayList;
 
 /**
  * A priority queue implementation using a max heap.
+ *
  * @param <K> The key type.
  * @param <V> The value type.
  */
-public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue<K, V> {
+public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue<K, V>, Cloneable {
 
-	private final ArrayList<ComparableNode<K, V>> A; // The array list that holds the nodes of the max heap.
+	private final ArrayList<ComparableNode<K, V>> A; // Array list that holds the nodes of the max heap.
 
 	/**
 	 * Constructs an empty priority queue.
@@ -22,7 +23,17 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 	}
 
 	/**
+	 * Constructs a priority queue with the given list.
+	 *
+	 * @param list The list to initialize the priority queue with.
+	 */
+	private PriorityQueue(ArrayList<ComparableNode<K, V>> list) {
+		this.A = list;
+	}
+
+	/**
 	 * Returns the index of the parent of a node in the max heap.
+	 *
 	 * @param i The index of the node.
 	 * @return The index of the parent.
 	 */
@@ -32,6 +43,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Returns the index of the left child of a node in the max heap.
+	 *
 	 * @param i The index of the node.
 	 * @return The index of the left child.
 	 */
@@ -41,6 +53,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Returns the index of the right child of a node in the max heap.
+	 *
 	 * @param i The index of the node.
 	 * @return The index of the right child.
 	 */
@@ -50,7 +63,8 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Inserts a node with the given key and value into the priority queue.
-	 * @param key The key of the node.
+	 *
+	 * @param key   The key of the node.
 	 * @param value The value of the node.
 	 */
 	@Override
@@ -61,6 +75,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Removes and returns the node with the highest priority (maximum key) from the priority queue.
+	 *
 	 * @return The value of the node with the highest priority.
 	 * @throws PriorityQueueException if the priority queue is empty.
 	 */
@@ -78,6 +93,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Returns the value of the node with the highest priority (maximum key) in the priority queue, without removing it from the queue.
+	 *
 	 * @return The value of the node with the highest priority, or null if the priority queue is empty.
 	 */
 	@Override
@@ -87,7 +103,8 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Increases the key of the node at the given index in the priority queue.
-	 * @param i The index of the node.
+	 *
+	 * @param i   The index of the node.
 	 * @param key The new key for the node.
 	 * @throws PriorityQueueException if the new key is smaller than the current key.
 	 */
@@ -105,6 +122,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Maintains the max-heap property of the priority queue by recursively "heapifying" the subtree rooted at i, assuming that the left and right subtrees are already max-heaps.
+	 *
 	 * @param i The index of the root of the subtree to be heapified.
 	 */
 	private void maxHeapify(int i) {
@@ -123,6 +141,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Swaps two elements in the priority queue at indices i and j.
+	 *
 	 * @param i The index of the first element to be swapped.
 	 * @param j The index of the second element to be swapped.
 	 */
@@ -134,6 +153,7 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Returns the number of elements in the priority queue.
+	 *
 	 * @return The number of elements in the priority queue.
 	 */
 	public int size() {
@@ -142,10 +162,21 @@ public class PriorityQueue<K extends Comparable<K>, V> implements IPriorityQueue
 
 	/**
 	 * Checks if the priority queue is empty.
+	 *
 	 * @return true if the priority queue is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
 		return size() == 0;
+	}
+
+	/**
+	 * Creates and returns a copy of the priority queue.
+	 *
+	 * @return A new PriorityQueue object that is a copy of the original priority queue.
+	 */
+	public PriorityQueue<K, V> clone() {
+		ArrayList<ComparableNode<K, V>> copy = new ArrayList<>(this.A);
+		return new PriorityQueue(copy);
 	}
 
 }
