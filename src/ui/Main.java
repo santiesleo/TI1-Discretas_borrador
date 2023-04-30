@@ -15,41 +15,16 @@ public class Main {
 
 	public void menu() {
 		JOptionPane.showMessageDialog(null, "*****************************************************************\n                    WELCOME TO BOARDING SYSTEM                    \n*****************************************************************", "Passenger management system", JOptionPane.PLAIN_MESSAGE);
-		int input;
+		int option;
 		do {
 			String[] menu = {"Check in a passenger", "Show entry order", "Show exit order", "Exit"};
-
-			input = 1 + JOptionPane.showOptionDialog(null, new JLabel("Main menu. Select an option", JLabel.CENTER), "Choose an option :)", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, menu, menu[0]);
-
-			try {
-				switch (input) {
-					case 1:
-						passengerCheckIn();
-						break;
-					case 2:
-						showEntryOrder();
-						break;
-					case 3:
-						showExitOrder();
-						break;
-					case 4:
-//						String exit = "";
-//						exit += ("*****************************************************************\n");
-//						exit += ("                            EXIT SUCCESSFULLY                    \n");
-//						exit += ("*****************************************************************");
-//						JOptionPane.showMessageDialog(null, exit);
-						break;
-					default:
-						throw new NumberFormatException();
-				}
-			} catch (NumberFormatException ex) {
-				String invalidInput = "";
-				invalidInput += ("*****************************************************************\n");
-				invalidInput += ("            INVALID INPUT: PLEASE ENTER A VALID VALUE            \n");
-				invalidInput += ("*****************************************************************");
-				JOptionPane.showMessageDialog(null, invalidInput, "Error", JOptionPane.ERROR_MESSAGE);
+			option = 1 + JOptionPane.showOptionDialog(null, new JLabel("Main menu. Select an option", JLabel.CENTER), "Choose an option :)", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, menu, menu[0]);
+			switch (option) {
+				case 1 -> passengerCheckIn();
+				case 2 -> showEntryOrder();
+				case 3 -> showExitOrder();
 			}
-		} while (input != 4);
+		} while (option != 4);
 	}
 
 	public void passengerCheckIn() {

@@ -112,14 +112,14 @@ public class Controller {
 	}
 
 	public String showEntryOrder() {
-		return getString(entryOrder);
+		return getListsString(entryOrder);
 	}
 
 	public String showExitOrder() {
-		return getString(exitOrder);
+		return getListsString(exitOrder);
 	}
 
-	private String getString(PriorityQueue<Integer, Passenger> priorityQueue) {
+	private String getListsString(PriorityQueue<Integer, Passenger> priorityQueue) {
 		StringBuilder msg = new StringBuilder();
 		PriorityQueue<Integer, Passenger> priorityQueueCopy = priorityQueue.clone();
 		while (!priorityQueueCopy.isEmpty()) {

@@ -1,0 +1,482 @@
+[
+    {
+      "name": "Mateo",
+      "lastName": "García",
+      "identification": "12345678",
+      "passengerClass": "ECONOMY",
+      "seat": "A4",
+      "age": 27,
+      "accumulatedMiles": 1250,
+      "specialAttention": false
+    },
+    {
+      "name": "Sofía",
+      "lastName": "Martínez",
+      "identification": "23456789",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "A1",
+      "age": 35,
+      "accumulatedMiles": 4500,
+      "specialAttention": true
+    },
+    {
+      "name": "Lucas",
+      "lastName": "Hernández",
+      "identification": "34567890",
+      "passengerClass": "ECONOMY",
+      "seat": "B5",
+      "age": 43,
+      "accumulatedMiles": 780,
+      "specialAttention": false
+    },
+    {
+      "name": "Valentina",
+      "lastName": "Gómez",
+      "identification": "45678901",
+      "passengerClass": "ECONOMY",
+      "seat": "E7",
+      "age": 19,
+      "accumulatedMiles": 50,
+      "specialAttention": false
+    },
+    {
+      "name": "Miguel",
+      "lastName": "Torres",
+      "identification": "56789012",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "D1",
+      "age": 52,
+      "accumulatedMiles": 12000,
+      "specialAttention": true
+    },
+    {
+      "name": "Isabella",
+      "lastName": "Díaz",
+      "identification": "67890123",
+      "passengerClass": "ECONOMY",
+      "seat": "D5",
+      "age": 31,
+      "accumulatedMiles": 2100,
+      "specialAttention": false
+    },
+    {
+      "name": "Alejandro",
+      "lastName": "López",
+      "identification": "78901234",
+      "passengerClass": "ECONOMY",
+      "seat": "C8",
+      "age": 25,
+      "accumulatedMiles": 930,
+      "specialAttention": false
+    },
+    {
+      "name": "Camila",
+      "lastName": "Rojas",
+      "identification": "89012345",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "B3",
+      "age": 41,
+      "accumulatedMiles": 8750,
+      "specialAttention": true
+    },
+    {
+      "name": "Javier",
+      "lastName": "Castro",
+      "identification": "90123456",
+      "passengerClass": "ECONOMY",
+      "seat": "A5",
+      "age": 47,
+      "accumulatedMiles": 1750,
+      "specialAttention": false
+    },
+    {
+      "name": "Valeria",
+      "lastName": "Sánchez",
+      "identification": "01234567",
+      "passengerClass": "ECONOMY",
+      "seat": "F8",
+      "age": 22,
+      "accumulatedMiles": 310,
+      "specialAttention": false
+    },
+    {
+      "name": "Ana",
+      "lastName": "Flores",
+      "identification": "12348765",
+      "passengerClass": "ECONOMY",
+      "seat": "C5",
+      "age": 29,
+      "accumulatedMiles": 1750,
+      "specialAttention": false
+    },
+    {
+      "name": "David",
+      "lastName": "Ramírez",
+      "identification": "87654321",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "F1",
+      "age": 38,
+      "accumulatedMiles": 9800,
+      "specialAttention": true
+    },
+    {
+      "name": "Laura",
+      "lastName": "Guzmán",
+      "identification": "45671234",
+      "passengerClass": "ECONOMY",
+      "seat": "B7",
+      "age": 33,
+      "accumulatedMiles": 430,
+      "specialAttention": false
+    },
+    {
+      "name": "Juan",
+      "lastName": "Mendoza",
+      "identification": "43217654",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "C1",
+      "age": 46,
+      "accumulatedMiles": 14500,
+      "specialAttention": true
+    },
+    {
+      "name": "María",
+      "lastName": "Herrera",
+      "identification": "56781234",
+      "passengerClass": "ECONOMY",
+      "seat": "D6",
+      "age": 24,
+      "accumulatedMiles": 760,
+      "specialAttention": false
+    },
+    {
+      "name": "Carlos",
+      "lastName": "Pérez",
+      "identification": "65437821",
+      "passengerClass": "ECONOMY",
+      "seat": "E4",
+      "age": 42,
+      "accumulatedMiles": 3100,
+      "specialAttention": false
+    },
+    {
+      "name": "Paulina",
+      "lastName": "Luna",
+      "identification": "78903214",
+      "passengerClass": "ECONOMY",
+      "seat": "A6",
+      "age": 26,
+      "accumulatedMiles": 890,
+      "specialAttention": false
+    },
+    {
+      "name": "Fernando",
+      "lastName": "Castillo",
+      "identification": "09876543",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "E2",
+      "age": 51,
+      "accumulatedMiles": 18000,
+      "specialAttention": true
+    },
+    {
+      "name": "Luisa",
+      "lastName": "Ortega",
+      "identification": "23147568",
+      "passengerClass": "ECONOMY",
+      "seat": "F6",
+      "age": 31,
+      "accumulatedMiles": 2130,
+      "specialAttention": false
+    },
+    {
+      "name": "Roberto",
+      "lastName": "Vargas",
+      "identification": "75846123",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "D3",
+      "age": 39,
+      "accumulatedMiles": 6500,
+      "specialAttention": true
+    },
+    {
+      "name": "Ricardo",
+      "lastName": "Fuentes",
+      "identification": "87903214",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "A2",
+      "age": 47,
+      "accumulatedMiles": 24000,
+      "specialAttention": true
+    },
+    {
+      "name": "Paola",
+      "lastName": "Vega",
+      "identification": "90874512",
+      "passengerClass": "ECONOMY",
+      "seat": "C6",
+      "age": 27,
+      "accumulatedMiles": 950,
+      "specialAttention": false
+    },
+    {
+      "name": "Manuel",
+      "lastName": "López",
+      "identification": "12908765",
+      "passengerClass": "ECONOMY",
+      "seat": "D4",
+      "age": 23,
+      "accumulatedMiles": 240,
+      "specialAttention": false
+    },
+    {
+      "name": "Mónica",
+      "lastName": "Chávez",
+      "identification": "64783219",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "C3",
+      "age": 41,
+      "accumulatedMiles": 8700,
+      "specialAttention": true
+    },
+    {
+      "name": "Felipe",
+      "lastName": "Castro",
+      "identification": "78563421",
+      "passengerClass": "ECONOMY",
+      "seat": "A8",
+      "age": 36,
+      "accumulatedMiles": 1300,
+      "specialAttention": false
+    },
+    {
+      "name": "Sofía",
+      "lastName": "Núñez",
+      "identification": "56789123",
+      "passengerClass": "ECONOMY",
+      "seat": "D8",
+      "age": 29,
+      "accumulatedMiles": 570,
+      "specialAttention": false
+    },
+    {
+      "name": "Gabriel",
+      "lastName": "García",
+      "identification": "12458796",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "B1",
+      "age": 53,
+      "accumulatedMiles": 29000,
+      "specialAttention": true
+    },
+    {
+      "name": "Lucía",
+      "lastName": "Torres",
+      "identification": "37261548",
+      "passengerClass": "ECONOMY",
+      "seat": "B4",
+      "age": 25,
+      "accumulatedMiles": 460,
+      "specialAttention": false
+    },
+    {
+      "name": "Diego",
+      "lastName": "Rojas",
+      "identification": "94837216",
+      "passengerClass": "ECONOMY",
+      "seat": "C4",
+      "age": 32,
+      "accumulatedMiles": 1700,
+      "specialAttention": false
+    },
+    {
+      "name": "Juliana",
+      "lastName": "Aguirre",
+      "identification": "18765432",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "E1",
+      "age": 48,
+      "accumulatedMiles": 13200,
+      "specialAttention": true
+    },
+    {
+      "name": "Miguel",
+      "lastName": "Villalobos",
+      "identification": "74826315",
+      "passengerClass": "ECONOMY",
+      "seat": "F4",
+      "age": 31,
+      "accumulatedMiles": 2800,
+      "specialAttention": false
+    },
+    {
+      "name": "Valentina",
+      "lastName": "Mendoza",
+      "identification": "92138476",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "D2",
+      "age": 29,
+      "accumulatedMiles": 8200,
+      "specialAttention": true
+    },
+    {
+      "name": "Marcela",
+      "lastName": "Martínez",
+      "identification": "37482910",
+      "passengerClass": "ECONOMY",
+      "seat": "B8",
+      "age": 24,
+      "accumulatedMiles": 710,
+      "specialAttention": false
+    },
+    {
+      "name": "Andrés",
+      "lastName": "Gómez",
+      "identification": "59173628",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "A3",
+      "age": 52,
+      "accumulatedMiles": 17000,
+      "specialAttention": true
+    },
+    {
+      "name": "Camila",
+      "lastName": "González",
+      "identification": "89674523",
+      "passengerClass": "ECONOMY",
+      "seat": "A7",
+      "age": 26,
+      "accumulatedMiles": 830,
+      "specialAttention": false
+    },
+    {
+      "name": "Jorge",
+      "lastName": "Santos",
+      "identification": "46578923",
+      "passengerClass": "ECONOMY",
+      "seat": "B6",
+      "age": 34,
+      "accumulatedMiles": 1550,
+      "specialAttention": false
+    },
+    {
+      "name": "Laura",
+      "lastName": "Lara",
+      "identification": "10293847",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "B2",
+      "age": 43,
+      "accumulatedMiles": 12750,
+      "specialAttention": true
+    },
+    {
+      "name": "Mario",
+      "lastName": "Rivas",
+      "identification": "93726154",
+      "passengerClass": "ECONOMY",
+      "seat": "C7",
+      "age": 28,
+      "accumulatedMiles": 620,
+      "specialAttention": false
+    },
+    {
+      "name": "Daniela",
+      "lastName": "Alvarado",
+      "identification": "78654329",
+      "passengerClass": "ECONOMY",
+      "seat": "E5",
+      "age": 27,
+      "accumulatedMiles": 940,
+      "specialAttention": false
+    },
+    {
+      "name": "Gustavo",
+      "lastName": "Ramírez",
+      "identification": "65437829",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "C2",
+      "age": 50,
+      "accumulatedMiles": 22000,
+      "specialAttention": true
+    },
+    {
+      "name": "Natalia",
+      "lastName": "Vargas",
+      "identification": "75849361",
+      "passengerClass": "ECONOMY",
+      "seat": "D7",
+      "age": 29,
+      "accumulatedMiles": 1340,
+      "specialAttention": false
+    },
+    {
+      "name": "Sebastián",
+      "lastName": "Herrera",
+      "identification": "23456788",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "F2",
+      "age": 40,
+      "accumulatedMiles": 18500,
+      "specialAttention": true
+    },
+    {
+      "name": "David",
+      "lastName": "Fernández",
+      "identification": "67382941",
+      "passengerClass": "ECONOMY",
+      "seat": "E6",
+      "age": 22,
+      "accumulatedMiles": 410,
+      "specialAttention": false
+    },
+    {
+      "name": "Estefanía",
+      "lastName": "Pérez",
+      "identification": "98273465",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "E3",
+      "age": 36,
+      "accumulatedMiles": 9800,
+      "specialAttention": true
+    },
+    {
+      "name": "Ricardo",
+      "lastName": "Castillo",
+      "identification": "23981756",
+      "passengerClass": "ECONOMY",
+      "seat": "F5",
+      "age": 27,
+      "accumulatedMiles": 780,
+      "specialAttention": false
+    },
+    {
+      "name": "Isabella",
+      "lastName": "Suárez",
+      "identification": "72193847",
+      "passengerClass": "ECONOMY",
+      "seat": "E8",
+      "age": 25,
+      "accumulatedMiles": 550,
+      "specialAttention": false
+    },
+    {
+      "name": "Fabián",
+      "lastName": "García",
+      "identification": "12345670",
+      "passengerClass": "FIRST_CLASS",
+      "seat": "F3",
+      "age": 47,
+      "accumulatedMiles": 15500,
+      "specialAttention": true
+    },
+    {
+      "name": "Luciana",
+      "lastName": "Álvarez",
+      "identification": "56473829",
+      "passengerClass": "ECONOMY",
+      "seat": "F7",
+      "age": 33,
+      "accumulatedMiles": 1500,
+      "specialAttention": false
+    }
+]
