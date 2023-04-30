@@ -1,27 +1,26 @@
 package test.dataStructures;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
-
 import dataStructures.PriorityQueue.PriorityQueue;
 import exception.PriorityQueueException;
 import model.Passenger;
 import model.PassengerClass;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PriorityQueueTest {
+
     private PriorityQueue<Integer, Passenger> priorityQueue;
+
     // Objects used
     private Passenger p1 = new Passenger("Juan", "jdColonia", "12345", PassengerClass.ECONOMY, "A8", 18, 50, false, false);
-    private Passenger p2 = new Passenger("Santiago", "santiesleo", "23456", PassengerClass.FIRST_CLASS, "B1", 22, 1200,
-            false, false);
-    private Passenger p3 = new Passenger("Esteban", "EstebanGZam", "34567", PassengerClass.FIRST_CLASS, "C2", 40, 150,
-            true, false);
+    private Passenger p2 = new Passenger("Santiago", "santiesleo", "23456", PassengerClass.FIRST_CLASS, "B1", 22, 1200, false, false);
+    private Passenger p3 = new Passenger("Esteban", "EstebanGZam", "34567", PassengerClass.FIRST_CLASS, "C2", 40, 150, true, false);
     private Passenger p4 = new Passenger("Javier", "Roman", "56789", PassengerClass.ECONOMY, "C6", 75, 3000, true, false);
     private Passenger p5 = new Passenger("Juan", "Perez", "45678", PassengerClass.ECONOMY, "B5", 33, 0, false, false);
 
-    // setups
+    // Setups
     public void setup1() {
         priorityQueue = new PriorityQueue<>();
     }
@@ -42,8 +41,7 @@ public class PriorityQueueTest {
         priorityQueue.insert(40, p5);
     }
 
-    // insert() tests
-    // test 1
+    // Insert(): test1
     @Test
     public void testInsertIntoEmptyQueue() {
         setup1();
@@ -52,7 +50,7 @@ public class PriorityQueueTest {
         assertEquals(p1, priorityQueue.extractMax());
     }
 
-    // test 2
+    // Insert(): test2
     @Test
     public void testInsertMultipleElements() {
         setup1();
@@ -63,7 +61,7 @@ public class PriorityQueueTest {
         assertEquals(p3, priorityQueue.extractMax());
     }
 
-    // test 3
+    // Insert(): test3
     @Test
     public void testInsertElementsWithSamePriority() {
         setup1();
@@ -75,8 +73,7 @@ public class PriorityQueueTest {
         assertEquals(p2, priorityQueue.extractMax());
     }
 
-    // maximum() test
-    // test 1
+    // Maximum(): test1
     @Test
     public void testCorrectMaximum() {
         setup2();
@@ -84,14 +81,14 @@ public class PriorityQueueTest {
         assertEquals(p1, priorityQueue.maximum());
     }
 
-    // test 2
+    // Maximum(): test2
     @Test
     public void testMaximumInEmptyQueue() {
         setup1();
         assertNull(priorityQueue.maximum());
     }
 
-    // test 3
+    // Maximum(): test3
     @Test
     public void testMaximumAfterExtract() {
         setup2();
@@ -102,8 +99,7 @@ public class PriorityQueueTest {
         assertEquals(p3, priorityQueue.maximum());
     }
 
-    // extractMax() test
-    // test 1
+    // ExtractMax(): test1
     @Test
     public void testExtractMaxNonEmptyPriorityQueue() {
         setup2();
@@ -112,14 +108,14 @@ public class PriorityQueueTest {
         assertEquals(p3, priorityQueue.extractMax());
     }
 
-    // test 2
-    @Test
+    // ExtractMax(): test2
+    @Test(expected = PriorityQueueException.class)
     public void testExtractMaxInEmptyPriorityQueue() {
         setup1();
-        assertThrows(PriorityQueueException.class, () -> priorityQueue.extractMax());
+        priorityQueue.extractMax();
     }
 
-    // test 3
+    // ExtractMax(): test3
     @Test
     public void testExtractMaxDuplicatePriorityElements() {
         setup3();
@@ -130,8 +126,7 @@ public class PriorityQueueTest {
         assertEquals(p2, priorityQueue.extractMax());
     }
 
-    // increaseKey() test
-    // test 1
+    // IncreaseKey() test1
     @Test
     public void testIncreaseKey() {
         setup2();
@@ -141,7 +136,7 @@ public class PriorityQueueTest {
         assertEquals(p2, priorityQueue.extractMax());
     }
 
-    // test 2
+    // IncreaseKey() test2
     @Test(expected = PriorityQueueException.class)
     public void testIncreaseKeyInvalidNewKey() {
         setup1();
@@ -149,7 +144,7 @@ public class PriorityQueueTest {
         priorityQueue.increaseKey(0, 23);
     }
 
-    // test 3
+    // IncreaseKey() test3
     @Test(expected = IndexOutOfBoundsException.class)
     public void testIncreaseKeyInvalidIndex() {
         setup1();

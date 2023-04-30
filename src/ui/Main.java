@@ -17,7 +17,6 @@ public class Main {
         JOptionPane.showMessageDialog(null, "*****************************************************************\n                   WELCOME TO BOARDING SYSTEM                    \n*****************************************************************");
 
         boolean stopFlag = false;
-        boolean menuFlag = false;
         while (!stopFlag) {
             String menu = "";
             menu += ("MAIN MENU:");
