@@ -82,7 +82,7 @@ public class Controller {
 		} else {
 			Instant instant = Instant.now();
 			int arrivalTime = Math.toIntExact(instant.getEpochSecond());
-			int priority = calculatePriorityEntry(passenger, startTime - arrivalTime);
+			int priority = calculatePriorityEntry(passenger, arrivalTime - startTime);
 			passenger.setChecked(true);
 			entryOrder.insert(priority, passenger);
 			fillPQExit(passenger);
@@ -93,7 +93,7 @@ public class Controller {
 
 	public int calculatePriorityEntry(Passenger passenger, int arrivalTime) {
 		int priority = 0;
-		int coefficient = 10000;
+		int coefficient = 100000;
 		String rowString = passenger.getSeat();
 		int seat = Integer.parseInt(rowString.substring(1));
 		priority += coefficient * seat;
@@ -107,7 +107,7 @@ public class Controller {
 			priority += coefficient * passenger.getAccumulatedMiles();
 		}
 		coefficient = 5;
-		priority += coefficient * arrivalTime;
+		priority -= coefficient * arrivalTime;
 		return priority;
 	}
 
@@ -124,7 +124,7 @@ public class Controller {
 		PriorityQueue<Integer, Passenger> priorityQueueCopy = priorityQueue.clone();
 		while (!priorityQueueCopy.isEmpty()) {
 			Passenger passenger = priorityQueueCopy.extractMax();
-			msg.append(String.format("%-50s %s\n", passenger.getName() + " " + passenger.getLastName(), passenger.getSeat()));
+			msg.append(String.format("%-10s %s\n",passenger.getSeat(), passenger.getName() + " " + passenger.getLastName()));
 		}
 		return msg.toString();
 	}
