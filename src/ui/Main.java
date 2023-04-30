@@ -14,21 +14,25 @@ public class Main {
 	}
 
 	public void menu() {
-		JOptionPane.showMessageDialog(null, "*****************************************************************\n                    WELCOME TO BOARDING SYSTEM                    \n*****************************************************************", "Passenger management system", JOptionPane.PLAIN_MESSAGE);
+		JOptionPane.showMessageDialog(null, new JLabel("WELCOME TO BOARDING SYSTEM", JLabel.CENTER), "Passenger management system", JOptionPane.PLAIN_MESSAGE);
 		int option;
 		do {
 			String[] menu = {"Check in a passenger", "Show entry order", "Show exit order", "Exit"};
-			option = 1 + JOptionPane.showOptionDialog(null, new JLabel("Main menu. Select an option", JLabel.CENTER), "Choose an option :)", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, menu, menu[0]);
+			option = JOptionPane.showOptionDialog(null, new JLabel("Select an option", JLabel.CENTER), "Main menu", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, menu, menu[0]);
 			switch (option) {
-				case 1 -> passengerCheckIn();
-				case 2 -> showEntryOrder();
-				case 3 -> showExitOrder();
+				case 0 -> passengerCheckIn();
+				case 1 -> showEntryOrder();
+				case 2 -> showExitOrder();
+				case JOptionPane.CLOSED_OPTION -> option = 3;
 			}
-		} while (option != 4);
+		} while (option != 3);
 	}
 
 	public void passengerCheckIn() {
 		String identification = JOptionPane.showInputDialog("Passenger ID number: ");
+		if (identification == null) {
+			return;
+		}
 		try {
 			String passengerInformation = controller.searchPassenger(identification);
 			JOptionPane.showMessageDialog(null, passengerInformation);
@@ -39,28 +43,25 @@ public class Main {
 		}
 	}
 
+
 	public void showEntryOrder() {
 		String msg = controller.showEntryOrder();
-		String entryOrder = ("*****************************************************************\n");
 		if (msg.isEmpty()) {
-			entryOrder += ("                   NO PASSENGER HAS CHECKED IN                   \n");
+			JOptionPane.showMessageDialog(null, "No passenger has checked in", "Error", JOptionPane.ERROR_MESSAGE);
 		} else {
-			entryOrder += ("ENTRY ORDER:\n" + msg + "\n");
+			String entryOrder = ("ENTRY ORDER:\n" + msg + "\n");
+			JOptionPane.showMessageDialog(null, entryOrder);
 		}
-		entryOrder += ("*****************************************************************");
-		JOptionPane.showMessageDialog(null, entryOrder);
 	}
 
 	public void showExitOrder() {
 		String msg = controller.showExitOrder();
-		String exitOrder = ("*****************************************************************\n");
 		if (msg.isEmpty()) {
-			exitOrder += ("              NO PASSENGER HAS ENTERED THE AIRPLANE              \n");
+			JOptionPane.showMessageDialog(null, "No passenger has entered the airplane", "Error", JOptionPane.ERROR_MESSAGE);
 		} else {
-			exitOrder += ("EXIT ORDER:\n" + msg + "\n");
+			String exitOrder = ("EXIT ORDER:\n" + msg + "\n");
+			JOptionPane.showMessageDialog(null, exitOrder);
 		}
-		exitOrder += ("*****************************************************************");
-		JOptionPane.showMessageDialog(null, exitOrder);
 	}
 
 }

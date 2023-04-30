@@ -68,7 +68,7 @@ public class Controller {
 
 	public String searchPassenger(String identification) {
 		Passenger passenger = passengers.search(identification);
-		if (passenger == null) throw new RuntimeException("Error: Passenger not found.");
+		if (passenger == null) throw new RuntimeException("Passenger not found");
 		return "Passenger information:\n" + passenger.toString();
 	}
 
@@ -76,9 +76,9 @@ public class Controller {
 		Passenger passenger = passengers.search(identification);
 		String msg;
 		if (passenger == null) {
-			throw new RuntimeException("Error: Passenger not found.");
+			throw new RuntimeException("Passenger not found");
 		} else if (passenger.isChecked()) {
-			throw new RuntimeException("The passenger had already been registered in the departure lounge.");
+			throw new RuntimeException("The passenger had already been registered in the departure lounge");
 		} else {
 			Instant instant = Instant.now();
 			int arrivalTime = Math.toIntExact(instant.getEpochSecond());
@@ -86,7 +86,7 @@ public class Controller {
 			passenger.setChecked(true);
 			entryOrder.insert(priority, passenger);
 			fillPQExit(passenger);
-			msg = "Passenger checked in at boarding lounge.";
+			msg = "Passenger checked in at boarding lounge";
 		}
 		return msg;
 	}
